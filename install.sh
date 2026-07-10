@@ -169,9 +169,10 @@ install_XrayR() {
     if [[ ! -f /etc/XrayR/dns.json ]]; then
         cp dns.json /etc/XrayR/
     fi
-    if [[ ! -f /etc/XrayR/route.json ]]; then
-        cp route.json /etc/XrayR/
-    fi
+    # 下载自定义 route.json
+    wget -q -N --no-check-certificate \
+    -O /etc/XrayR/route.json \
+    https://raw.githubusercontent.com/ShAlIow/XrayR-release/master/config/route.json
     if [[ ! -f /etc/XrayR/custom_outbound.json ]]; then
         cp custom_outbound.json /etc/XrayR/
     fi
